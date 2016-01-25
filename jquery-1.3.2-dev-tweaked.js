@@ -2952,8 +2952,8 @@
             try {
                 parent = parent.parentNode;
             } catch (e) {
-            parent = this;
-        }
+                parent = this;
+            }
 
         if (parent != this) {
             // set the correct event type
