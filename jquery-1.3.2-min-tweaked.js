@@ -639,8 +639,8 @@
                     var Q = !O.indexOf("<opt") && [1, "<select multiple='multiple'>",
                             "</select>"
                         ] || !O.indexOf("<leg") && [1, "<fieldset>", "</fieldset>"] || O.match(
-                            /^<(thead|tbody|tfoot|colg|cap)/) && [1, "<table>", "</table>"] ||
-                        !O.indexOf("<tr") && [2, "<table><tbody>", "</tbody></table>"] || (!O.indexOf(
+                            /^<(thead|tbody|tfoot|colg|cap)/) && [1, "<table>", "</table>"] || !
+                        O.indexOf("<tr") && [2, "<table><tbody>", "</tbody></table>"] || (!O.indexOf(
                             "<td") || !O.indexOf("<th")) && [3, "<table><tbody><tr>",
                             "</tr></tbody></table>"
                         ] || !O.indexOf("<col") && [2, "<table><tbody></tbody><colgroup>",
