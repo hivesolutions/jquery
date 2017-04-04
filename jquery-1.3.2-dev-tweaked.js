@@ -9,7 +9,7 @@
 (function() {
 
     var
-    // Will speed up references to window, and allows munging its name.
+        // Will speed up references to window, and allows munging its name.
         window = this,
         // Will speed up references to undefined, and allows munging its name.
         undefined,
@@ -170,7 +170,7 @@
                     options[name] = value;
                 }
 
-                // Check to see if we're setting style values
+            // Check to see if we're setting style values
             return this.each(function(i) {
                 // Set all the styles
                 for (name in options)
@@ -369,7 +369,7 @@
 
         not: function(selector) {
             if (typeof selector === "string")
-            // test special case where just one selector is passed in
+                // test special case where just one selector is passed in
                 if (isSimple.test(selector))
                     return this.pushStack(jQuery.multiFilter(selector, this, true), "not", selector);
                 else
@@ -571,30 +571,30 @@
         }
 
         for (; i < length; i++)
-        // Only deal with non-null/undefined values
+            // Only deal with non-null/undefined values
             if ((options = arguments[i]) != null)
-            // Extend the base object
+                // Extend the base object
                 for (var name in options) {
-                var src = target[name],
-                    copy = options[name];
+                    var src = target[name],
+                        copy = options[name];
 
-                // Prevent never-ending loop
-                if (target === copy)
-                    continue;
+                    // Prevent never-ending loop
+                    if (target === copy)
+                        continue;
 
-                // Recurse if we're merging object values
-                if (deep && copy && typeof copy === "object" && !copy.nodeType)
-                    target[name] = jQuery.extend(deep,
-                        // Never move original objects, clone them
-                        src || (copy.length != null ? [] : {}), copy);
+                    // Recurse if we're merging object values
+                    if (deep && copy && typeof copy === "object" && !copy.nodeType)
+                        target[name] = jQuery.extend(deep,
+                            // Never move original objects, clone them
+                            src || (copy.length != null ? [] : {}), copy);
 
-                // Don't bring in undefined values
-                else if (copy !== undefined)
-                    target[name] = copy;
+                    // Don't bring in undefined values
+                    else if (copy !== undefined)
+                        target[name] = copy;
 
-            }
+                }
 
-            // Return the modified object
+        // Return the modified object
         return target;
     };
 
@@ -671,7 +671,7 @@
                         if (callback.apply(object[i++], args) === false)
                             break;
 
-                        // A special, fast, case for the most common use of each
+                // A special, fast, case for the most common use of each
             } else {
                 if (length === undefined) {
                     for (name in object)
@@ -1015,7 +1015,7 @@
                     return jQuery.attr(elem.style, "cssText", value);
 
                 if (set)
-                // convert the value to a string (all browsers do this but IE) see #1070
+                    // convert the value to a string (all browsers do this but IE) see #1070
                     elem.setAttribute(name, "" + value);
 
                 var attr = !jQuery.support.hrefNormalized && notxml && special
@@ -1076,7 +1076,7 @@
 
         inArray: function(elem, array) {
             for (var i = 0, length = array.length; i < length; i++)
-            // Use === because on IE, window == document
+                // Use === because on IE, window == document
                 if (array[i] === elem)
                     return i;
 
@@ -2571,7 +2571,7 @@
                             // remove all handlers for the given type
                             else
                                 for (var handle in events[type])
-                                // Handle the removal of namespaced events
+                                    // Handle the removal of namespaced events
                                     if (namespace.test(events[type][handle].type))
                                         delete events[type][handle];
 
@@ -2994,12 +2994,12 @@
 
             // If the DOM is already ready
             if (jQuery.isReady)
-            // Execute the function immediately
+                // Execute the function immediately
                 fn.call(document, jQuery);
 
             // Otherwise, remember the function for later
             else
-            // Add the function to the wait list
+                // Add the function to the wait list
                 jQuery.readyList.push(fn);
 
             return this;
@@ -3144,9 +3144,9 @@
     // Window isn't included so as not to unbind existing unload events
     jQuery(window).bind('unload', function() {
         for (var id in jQuery.cache)
-        // Skip the window
+            // Skip the window
             if (id != 1 && jQuery.cache[id].handle)
-            jQuery.event.remove(jQuery.cache[id].handle.elem);
+                jQuery.event.remove(jQuery.cache[id].handle.elem);
     });
     (function() {
 
@@ -3280,14 +3280,14 @@
 
             // If the second parameter was provided
             if (params)
-            // If it's a function
+                // If it's a function
                 if (jQuery.isFunction(params)) {
-                // We assume that it's the callback
-                callback = params;
-                params = null;
+                    // We assume that it's the callback
+                    callback = params;
+                    params = null;
 
-                // Otherwise, build a param string
-            } else if (typeof params === "object") {
+                    // Otherwise, build a param string
+                } else if (typeof params === "object") {
                 params = jQuery.param(params);
                 type = "POST";
             }
@@ -3303,20 +3303,20 @@
                 complete: function(res, status) {
                     // If successful, inject the HTML into all the matched elements
                     if (status == "success" || status == "notmodified")
-                    // See if a selector was specified
+                        // See if a selector was specified
                         self.html(selector ?
-                        // Create a dummy div to hold the results
-                        jQuery("<div/>")
-                        // inject the contents of the document in, removing the scripts
-                        // to avoid any 'Permission Denied' errors in IE
-                        .append(res.responseText.replace(/<script(.|\s)*?\/script>/g,
-                            ""))
+                            // Create a dummy div to hold the results
+                            jQuery("<div/>")
+                            // inject the contents of the document in, removing the scripts
+                            // to avoid any 'Permission Denied' errors in IE
+                            .append(res.responseText.replace(/<script(.|\s)*?\/script>/g,
+                                ""))
 
-                        // Locate the specified elements
-                        .find(selector) :
+                            // Locate the specified elements
+                            .find(selector) :
 
-                        // If not, just inject the full result
-                        res.responseText);
+                            // If not, just inject the full result
+                            res.responseText);
 
                     if (callback)
                         self.each(callback, [res.responseText, status, res]);
@@ -3782,16 +3782,16 @@
             // If an array was passed in, assume that it is an array
             // of form elements
             if (jQuery.isArray(a) || a.jquery)
-            // Serialize the form elements
+                // Serialize the form elements
                 jQuery.each(a, function() {
-                add(this.name, this.value);
-            });
+                    add(this.name, this.value);
+                });
 
             // Otherwise, assume that it's an object of key/value pairs
             else
-            // Serialize the key/values
+                // Serialize the key/values
                 for (var j in a)
-                // If the value is an array then the key names need to be repeated
+                    // If the value is an array then the key names need to be repeated
                     if (jQuery.isArray(a[j]))
                         jQuery.each(a[j], function() {
                             add(j, this);
@@ -3799,7 +3799,7 @@
                     else
                         add(j, jQuery.isFunction(a[j]) ? a[j]() : a[j]);
 
-                    // Return the resulting serialization
+            // Return the resulting serialization
             return s.join("&").replace(/%20/g, "+");
         }
 
@@ -3978,7 +3978,7 @@
                 for (var i = timers.length - 1; i >= 0; i--)
                     if (timers[i].elem == this) {
                         if (gotoEnd)
-                        // force the next step to be the last
+                            // force the next step to be the last
                             timers[i](true);
                         timers.splice(i, 1);
                     }

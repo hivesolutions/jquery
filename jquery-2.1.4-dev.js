@@ -62,7 +62,7 @@
 
 
     var
-    // Use the correct document accordingly with window argument (sandbox)
+        // Use the correct document accordingly with window argument (sandbox)
         document = window.document,
 
         version = "2.1.4",
@@ -5716,8 +5716,8 @@
 
 
     var
-    // Swappable if display is none or starts with table except "table", "table-cell", or "table-caption"
-    // See here for display values: https://developer.mozilla.org/en-US/docs/CSS/display
+        // Swappable if display is none or starts with table except "table", "table-cell", or "table-caption"
+        // See here for display values: https://developer.mozilla.org/en-US/docs/CSS/display
         rdisplayswap = /^(none|table(?!-c[ea]).+)/,
         rnumsplit = new RegExp("^(" + pnum + ")(.*)$", "i"),
         rrelNum = new RegExp("^([+-])=(" + pnum + ")", "i"),
@@ -6696,10 +6696,10 @@
             // Show any hidden elements after setting opacity to 0
             return this.filter(isHidden).css("opacity", 0).show()
 
-            // Animate to the value specified
-            .end().animate({
-                opacity: to
-            }, speed, easing, callback);
+                // Animate to the value specified
+                .end().animate({
+                    opacity: to
+                }, speed, easing, callback);
         },
         animate: function(prop, speed, easing, callback) {
             var empty = jQuery.isEmptyObject(prop),
@@ -9192,7 +9192,7 @@
 
 
     var
-    // Map over jQuery in case of overwrite
+        // Map over jQuery in case of overwrite
         _jQuery = window.jQuery,
 
         // Map over the $ in case of overwrite
