@@ -325,8 +325,8 @@
             })
         },
         html: function(E) {
-            return E === g ? (this[0] ? this[0].innerHTML.replace(/ jQuery\d+="(?:\d+|null)"/g, "") : null) :
-                this.empty().append(E)
+            return E === g ? (this[0] ? this[0].innerHTML.replace(/ jQuery\d+="(?:\d+|null)"/g, "") : null)
+                : this.empty().append(E)
         },
         replaceWith: function(E) {
             return this.after(E).remove()
@@ -654,8 +654,8 @@
                     }
                     if (!o.support.tbody) {
                         var R = /<tbody/i.test(S),
-                            N = !O.indexOf("<table") && !R ? L.firstChild && L.firstChild.childNodes :
-                            Q[1] == "<table>" && !R ? L.childNodes : [];
+                            N = !O.indexOf("<table") && !R ? L.firstChild && L.firstChild.childNodes
+                            : Q[1] == "<table>" && !R ? L.childNodes : [];
                         for (var M = N.length - 1; M >= 0; --M) {
                             if (o.nodeName(N[M], "tbody") && !N[M].childNodes.length) {
                                 N[M].parentNode.removeChild(N[M])
@@ -675,8 +675,8 @@
             });
             if (I) {
                 for (var J = 0; G[J]; J++) {
-                    if (o.nodeName(G[J], "script") && (!G[J].type || G[J].type.toLowerCase() ===
-                            "text/javascript")) {
+                    if (o.nodeName(G[J], "script") && (!G[J].type || G[J].type.toLowerCase()
+                            === "text/javascript")) {
                         E.push(G[J].parentNode ? G[J].parentNode.removeChild(G[J]) : G[J])
                     } else {
                         if (G[J].nodeType === 1) {
@@ -732,8 +732,8 @@
             if (!o.support.opacity && G == "opacity") {
                 if (L) {
                     J.zoom = 1;
-                    J.filter = (J.filter || "").replace(/alpha\([^)]*\)/, "") + (parseInt(K) + "" ==
-                        "NaN" ? "" : "alpha(opacity=" + K * 100 + ")")
+                    J.filter = (J.filter || "").replace(/alpha\([^)]*\)/, "") + (parseInt(K) + ""
+                        == "NaN" ? "" : "alpha(opacity=" + K * 100 + ")")
                 }
                 return J.filter && J.filter.indexOf("opacity=") >= 0 ? (parseFloat(J.filter.match(
                     /opacity=([^)]*)/)[1]) / 100) + "" : ""
@@ -1388,8 +1388,8 @@
                 },
                 CHILD: function(T) {
                     if (T[1] == "nth") {
-                        var U = /(-?)(\d*)n((?:\+|-)?\d*)/.exec(T[2] == "even" && "2n" || T[2] == "odd" &&
-                            "2n+1" || !/\D/.test(T[2]) && "0n+" + T[2] || T[2]);
+                        var U = /(-?)(\d*)n((?:\+|-)?\d*)/.exec(T[2] == "even" && "2n" || T[2] == "odd"
+                            && "2n+1" || !/\D/.test(T[2]) && "0n+" + T[2] || T[2]);
                         T[2] = (U[1] + (U[2] || 1)) - 0;
                         T[3] = U[3] - 0
                     }
@@ -1597,11 +1597,11 @@
                         Z = T + "",
                         X = W[2],
                         U = W[4];
-                    return T == null ? X === "!=" : X === "=" ? Z === U : X === "*=" ? Z.indexOf(U) >=
-                        0 : X === "~=" ? (" " + Z + " ").indexOf(U) >= 0 : !U ? Z && T !== false : X ===
-                        "!=" ? Z != U : X === "^=" ? Z.indexOf(U) === 0 : X === "$=" ? Z.substr(Z.length -
-                            U.length) === U : X === "|=" ? Z === U || Z.substr(0, U.length + 1) === U +
-                        "-" : false
+                    return T == null ? X === "!=" : X === "=" ? Z === U : X === "*=" ? Z.indexOf(U)
+                        >= 0 : X === "~=" ? (" " + Z + " ").indexOf(U) >= 0 : !U ? Z && T !== false : X
+                        === "!=" ? Z != U : X === "^=" ? Z.indexOf(U) === 0 : X === "$=" ? Z.substr(Z.length
+                            - U.length) === U : X === "|=" ? Z === U || Z.substr(0, U.length + 1) === U
+                        + "-" : false
                 },
                 POS: function(X, U, V, Y) {
                     var T = U[2],
@@ -2002,8 +2002,8 @@
                                 break
                             }
                             if (!F) {
-                                if (!o.event.special[O] || o.event.special[O].teardown.call(K, Q) ===
-                                    false) {
+                                if (!o.event.special[O] || o.event.special[O].teardown.call(K, Q)
+                                    === false) {
                                     if (K.removeEventListener) {
                                         K.removeEventListener(O, o.data(K, "handle"), false)
                                     } else {
@@ -2062,8 +2062,8 @@
             if (J) {
                 J.apply(H, K)
             }
-            if ((!H[G] || (o.nodeName(H, "a") && G == "click")) && H["on" + G] && H["on" + G].apply(H, K) ===
-                false) {
+            if ((!H[G] || (o.nodeName(H, "a") && G == "click")) && H["on" + G] && H["on" + G].apply(H, K)
+                === false) {
                 I.result = false
             }
             if (!E && H[G] && !I.isDefaultPrevented() && !(o.nodeName(H, "a") && G == "click")) {
@@ -2675,8 +2675,8 @@
                 o.event.trigger("ajaxStart")
             }
             var Q = /^(\w+:)?\/\/([^\/?#]+)/.exec(M.url);
-            if (M.dataType == "script" && G == "GET" && Q && (Q[1] && Q[1] != location.protocol || Q[2] !=
-                    location.host)) {
+            if (M.dataType == "script" && G == "GET" && Q && (Q[1] && Q[1] != location.protocol || Q[2]
+                    != location.host)) {
                 var H = document.getElementsByTagName("head")[0];
                 var T = document.createElement("script");
                 T.src = M.url;
@@ -2686,8 +2686,8 @@
                 if (!W) {
                     var O = false;
                     T.onload = T.onreadystatechange = function() {
-                        if (!O && (!this.readyState || this.readyState == "loaded" || this.readyState ==
-                                "complete")) {
+                        if (!O && (!this.readyState || this.readyState == "loaded" || this.readyState
+                                == "complete")) {
                             O = true;
                             I();
                             L();
@@ -2711,12 +2711,12 @@
                     J.setRequestHeader("Content-Type", M.contentType)
                 }
                 if (M.ifModified) {
-                    J.setRequestHeader("If-Modified-Since", o.lastModified[M.url] ||
-                        "Thu, 01 Jan 1970 00:00:00 GMT")
+                    J.setRequestHeader("If-Modified-Since", o.lastModified[M.url]
+                        || "Thu, 01 Jan 1970 00:00:00 GMT")
                 }
                 J.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-                J.setRequestHeader("Accept", M.dataType && M.accepts[M.dataType] ? M.accepts[M.dataType] +
-                    ", */*" : M.accepts._default)
+                J.setRequestHeader("Accept", M.dataType && M.accepts[M.dataType] ? M.accepts[M.dataType]
+                    + ", */*" : M.accepts._default)
             } catch (S) {}
             if (M.beforeSend && M.beforeSend(J, M) === false) {
                 if (M.global && !--o.active) {
@@ -2744,8 +2744,8 @@
                             clearInterval(P);
                             P = null
                         }
-                        R = X == "timeout" ? "timeout" : !o.httpSuccess(J) ? "error" : M.ifModified &&
-                            o.httpNotModified(J, M.url) ? "notmodified" : "success";
+                        R = X == "timeout" ? "timeout" : !o.httpSuccess(J) ? "error" : M.ifModified
+                            && o.httpNotModified(J, M.url) ? "notmodified" : "success";
                         if (R == "success") {
                             try {
                                 V = o.httpData(J, M.dataType, M)
@@ -2829,8 +2829,8 @@
         active: 0,
         httpSuccess: function(F) {
             try {
-                return !F.status && location.protocol == "file:" || (F.status >= 200 && F.status < 300) ||
-                    F.status == 304 || F.status == 1223
+                return !F.status && location.protocol == "file:" || (F.status >= 200 && F.status < 300)
+                    || F.status == 304 || F.status == 1223
             } catch (E) {}
             return false
         },
@@ -2949,8 +2949,8 @@
         _toggle: o.fn.toggle,
         toggle: function(G, F) {
             var E = typeof G === "boolean";
-            return o.isFunction(G) && o.isFunction(F) ? this._toggle.apply(this, arguments) : G == null ||
-                E ? this.each(function() {
+            return o.isFunction(G) && o.isFunction(F) ? this._toggle.apply(this, arguments) : G == null
+                || E ? this.each(function() {
                     var H = E ? G : o(this).is(":hidden");
                     o(this)[H ? "show" : "hide"]()
                 }) : this.animate(t("toggle", 3), G, F)
@@ -3049,8 +3049,8 @@
                 duration: G,
                 easing: F && H || H && !o.isFunction(H) && H
             };
-            E.duration = o.fx.off ? 0 : typeof E.duration === "number" ? E.duration : o.fx.speeds[E.duration] ||
-                o.fx.speeds._default;
+            E.duration = o.fx.off ? 0 : typeof E.duration === "number" ? E.duration : o.fx.speeds[E.duration]
+                || o.fx.speeds._default;
             E.old = E.complete;
             E.complete = function() {
                 if (E.queue !== false) {
@@ -3248,8 +3248,8 @@
                 N -= J.scrollTop, I -= J.scrollLeft;
                 if (J === G) {
                     N += J.offsetTop, I += J.offsetLeft;
-                    if (o.offset.doesNotAddBorder && !(o.offset.doesAddBorderForTableAndCells &&
-                            /^t(able|d|h)$/i.test(J.tagName))) {
+                    if (o.offset.doesNotAddBorder && !(o.offset.doesAddBorderForTableAndCells
+                            && /^t(able|d|h)$/i.test(J.tagName))) {
                         N += parseInt(M.borderTopWidth, 10) || 0, I += parseInt(M.borderLeftWidth, 10) || 0
                     }
                     F = G, G = J.offsetParent
@@ -3359,8 +3359,8 @@
                 return null
             }
             return H !== g ? this.each(function() {
-                    this == l || this == document ? l.scrollTo(!F ? H : o(l).scrollLeft(), F ? H :
-                        o(l).scrollTop()) : this[G] = H
+                    this == l || this == document ? l.scrollTo(!F ? H : o(l).scrollLeft(), F ? H
+                        : o(l).scrollTop()) : this[G] = H
                 }) : this[0] == l || this[0] == document ? self[F ? "pageYOffset" : "pageXOffset"] || o
                 .boxModel && document.documentElement[G] || document.body[G] : this[0][G]
         }
@@ -3380,9 +3380,9 @@
             return this[0] == l ? document.compatMode == "CSS1Compat" && document.documentElement[
                 "client" + G] || document.body["client" + G] : this[0] == document ? Math.max(
                 document.documentElement["client" + G], document.body["scroll" + G], document.documentElement[
-                    "scroll" + G], document.body["offset" + G], document.documentElement["offset" +
-                    G]) : K === g ? (this.length ? o.css(this[0], J) : null) : this.css(J, typeof K ===
-                "string" ? K : K + "px")
+                    "scroll" + G], document.body["offset" + G], document.documentElement["offset"
+                    + G]) : K === g ? (this.length ? o.css(this[0], J) : null) : this.css(J, typeof K
+                === "string" ? K : K + "px")
         }
     })
 })();

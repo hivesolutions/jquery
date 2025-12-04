@@ -102,10 +102,12 @@
         // Get the Nth element in the matched element set OR
         // Get the whole matched element set as a clean array
         get: function(num) {
-            return num === undefined ?
+            return num === undefined
+                ?
 
                 // Return a 'clean' array
-                Array.prototype.slice.call(this) :
+                Array.prototype.slice.call(this)
+                :
 
                 // Return just the object
                 this[num];
@@ -345,7 +347,8 @@
             return this.pushStack(
                 jQuery.isFunction(selector) && jQuery.grep(this, function(elem, i) {
                     return selector.call(elem, i);
-                }) ||
+                })
+                ||
 
                 jQuery.multiFilter(selector, jQuery.grep(this, function(elem) {
                     return elem.nodeType === 1;
@@ -629,8 +632,8 @@
 
         // check if an element is in a (or is an) XML document
         isXMLDoc: function(elem) {
-            return elem.nodeType === 9 && elem.documentElement.nodeName !== "HTML" || !!elem.ownerDocument &&
-                jQuery.isXMLDoc(elem.ownerDocument);
+            return elem.nodeType === 9 && elem.documentElement.nodeName !== "HTML" || !!elem.ownerDocument
+                && jQuery.isXMLDoc(elem.ownerDocument);
         },
 
         // Evalulates a script in a global context
@@ -693,8 +696,8 @@
                 value = value.call(elem, i);
 
             // Handle passing in a number to a CSS property
-            return typeof value === "number" && type == "curCSS" && !exclude.test(name) ? value + "px" :
-                value;
+            return typeof value === "number" && type == "curCSS" && !exclude.test(name) ? value + "px"
+                : value;
         },
 
         className: {
@@ -882,27 +885,34 @@
                         // option or optgroup
                         !tags.indexOf("<opt") && [1, "<select multiple='multiple'>",
                             "</select>"
-                        ] ||
+                        ]
+                        ||
 
-                        !tags.indexOf("<leg") && [1, "<fieldset>", "</fieldset>"] ||
+                        !tags.indexOf("<leg") && [1, "<fieldset>", "</fieldset>"]
+                        ||
 
                         tags.match(/^<(thead|tbody|tfoot|colg|cap)/) && [1, "<table>",
                             "</table>"
-                        ] ||
+                        ]
+                        ||
 
-                        !tags.indexOf("<tr") && [2, "<table><tbody>", "</tbody></table>"] ||
+                        !tags.indexOf("<tr") && [2, "<table><tbody>", "</tbody></table>"]
+                        ||
 
                         // <thead> matched above
                         (!tags.indexOf("<td") || !tags.indexOf("<th")) && [3,
                             "<table><tbody><tr>", "</tr></tbody></table>"
-                        ] ||
+                        ]
+                        ||
 
                         !tags.indexOf("<col") && [2, "<table><tbody></tbody><colgroup>",
                             "</colgroup></table>"
-                        ] ||
+                        ]
+                        ||
 
                         // IE can't serialize <link> and <script> tags normally
-                        !jQuery.support.htmlSerialize && [1, "div<div>", "</div>"] ||
+                        !jQuery.support.htmlSerialize && [1, "div<div>", "</div>"]
+                        ||
 
                         [0, "", ""];
 
@@ -919,7 +929,8 @@
                         // String was a <table>, *may* have spurious <tbody>
                         var hasBody = /<tbody/i.test(elem),
                             tbody = !tags.indexOf("<table") && !hasBody ? div.firstChild && div
-                            .firstChild.childNodes :
+                            .firstChild.childNodes
+                            :
 
                             // String was a bare <thead> or <tfoot>
                             wrap[1] == "<table>" && !hasBody ? div.childNodes : [];
@@ -946,8 +957,8 @@
 
             if (fragment) {
                 for (var i = 0; ret[i]; i++) {
-                    if (jQuery.nodeName(ret[i], "script") && (!ret[i].type || ret[i].type.toLowerCase() ===
-                            "text/javascript")) {
+                    if (jQuery.nodeName(ret[i], "script") && (!ret[i].type || ret[i].type.toLowerCase()
+                            === "text/javascript")) {
                         scripts.push(ret[i].parentNode ? ret[i].parentNode.removeChild(ret[i]) : ret[i]);
                     } else {
                         if (ret[i].nodeType === 1)
@@ -1038,8 +1049,8 @@
                     elem.zoom = 1;
 
                     // Set the alpha filter to set the opacity
-                    elem.filter = (elem.filter || "").replace(/alpha\([^)]*\)/, "") + (parseInt(value) +
-                        '' == "NaN" ? "" : "alpha(opacity=" + value * 100 + ")");
+                    elem.filter = (elem.filter || "").replace(/alpha\([^)]*\)/, "") + (parseInt(value)
+                        + '' == "NaN" ? "" : "alpha(opacity=" + value * 100 + ")");
                 }
 
                 return elem.filter && elem.filter.indexOf("opacity=") >= 0 ? (parseFloat(elem.filter.match(
@@ -1195,8 +1206,8 @@
             return jQuery.sibling(elem.firstChild);
         },
         contents: function(elem) {
-            return jQuery.nodeName(elem, "iframe") ? elem.contentDocument || elem.contentWindow.document :
-                jQuery.makeArray(elem.childNodes);
+            return jQuery.nodeName(elem, "iframe") ? elem.contentDocument || elem.contentWindow.document
+                : jQuery.makeArray(elem.childNodes);
         }
     }, function(name, fn) {
         jQuery.fn[name] = function(selector) {
@@ -1477,8 +1488,8 @@
                 var ret = seed ? {
                     expr: parts.pop(),
                     set: makeArray(seed)
-                } : Sizzle.find(parts.pop(), parts.length === 1 && context.parentNode ? context.parentNode :
-                    context, isXML(context));
+                } : Sizzle.find(parts.pop(), parts.length === 1 && context.parentNode ? context.parentNode
+                    : context, isXML(context));
                 set = Sizzle.filter(ret.expr, ret.set);
 
                 if (parts.length > 0) {
@@ -1708,8 +1719,8 @@
                         if ((elem = checkSet[i])) {
                             while ((elem = elem.previousSibling) && elem.nodeType !== 1) {}
 
-                            checkSet[i] = isPartStrNotTag || elem && elem.nodeName === part ? elem ||
-                                false : elem === part;
+                            checkSet[i] = isPartStrNotTag || elem && elem.nodeName === part ? elem
+                                || false : elem === part;
                         }
                     }
 
@@ -1802,8 +1813,8 @@
                     for (var i = 0, elem;
                         (elem = curLoop[i]) != null; i++) {
                         if (elem) {
-                            if (not ^ (elem.className && (" " + elem.className + " ").indexOf(match) >=
-                                    0)) {
+                            if (not ^ (elem.className && (" " + elem.className + " ").indexOf(match)
+                                    >= 0)) {
                                 if (!inplace)
                                     result.push(elem);
                             } else if (inplace) {
@@ -2037,18 +2048,18 @@
                 },
                 ATTR: function(elem, match) {
                     var name = match[1],
-                        result = Expr.attrHandle[name] ? Expr.attrHandle[name](elem) : elem[name] !=
-                        null ? elem[name] : elem.getAttribute(name),
+                        result = Expr.attrHandle[name] ? Expr.attrHandle[name](elem) : elem[name]
+                        != null ? elem[name] : elem.getAttribute(name),
                         value = result + "",
                         type = match[2],
                         check = match[4];
 
-                    return result == null ? type === "!=" : type === "=" ? value === check : type ===
-                        "*=" ? value.indexOf(check) >= 0 : type === "~=" ? (" " + value + " ").indexOf(
-                            check) >= 0 : !check ? value && result !== false : type === "!=" ? value !=
-                        check : type === "^=" ? value.indexOf(check) === 0 : type === "$=" ? value.substr(
-                            value.length - check.length) === check : type === "|=" ? value === check ||
-                        value.substr(0, check.length + 1) === check + "-" : false;
+                    return result == null ? type === "!=" : type === "=" ? value === check : type
+                        === "*=" ? value.indexOf(check) >= 0 : type === "~=" ? (" " + value + " ").indexOf(
+                            check) >= 0 : !check ? value && result !== false : type === "!=" ? value
+                        != check : type === "^=" ? value.indexOf(check) === 0 : type === "$=" ? value.substr(
+                            value.length - check.length) === check : type === "|=" ? value === check
+                        || value.substr(0, check.length + 1) === check + "-" : false;
                 },
                 POS: function(elem, match, i, array) {
                     var name = match[2],
@@ -2352,8 +2363,8 @@
         };
 
         var isXML = function(elem) {
-            return elem.nodeType === 9 && elem.documentElement.nodeName !== "HTML" || !!elem.ownerDocument &&
-                isXML(elem.ownerDocument);
+            return elem.nodeType === 9 && elem.documentElement.nodeName !== "HTML" || !!elem.ownerDocument
+                && isXML(elem.ownerDocument);
         };
 
         var posProcess = function(selector, context) {
@@ -2562,8 +2573,8 @@
                         // Namespaced event handlers
                         var namespaces = type.split(".");
                         type = namespaces.shift();
-                        var namespace = RegExp("(^|\\.)" + namespaces.slice().sort().join(".*\\.") +
-                            "(\\.|$)");
+                        var namespace = RegExp("(^|\\.)" + namespaces.slice().sort().join(".*\\.")
+                            + "(\\.|$)");
 
                         if (events[type]) {
                             // remove the given handler for the given type
@@ -2615,11 +2626,14 @@
             var type = event.type || event;
 
             if (!bubbling) {
-                event = typeof event === "object" ?
+                event = typeof event === "object"
+                    ?
                     // jQuery.Event object
-                    event[expando] ? event :
+                    event[expando] ? event
+                    :
                     // Object literal
-                    jQuery.extend(jQuery.Event(type), event) :
+                    jQuery.extend(jQuery.Event(type), event)
+                    :
                     // Just the event type (string)
                     jQuery.Event(type);
 
@@ -2663,13 +2677,13 @@
                 handle.apply(elem, data);
 
             // Handle triggering native .onfoo handlers (and on links since we don't call .click() for links)
-            if ((!elem[type] || (jQuery.nodeName(elem, 'a') && type == "click")) && elem["on" + type] &&
-                elem["on" + type].apply(elem, data) === false)
+            if ((!elem[type] || (jQuery.nodeName(elem, 'a') && type == "click")) && elem["on" + type]
+                && elem["on" + type].apply(elem, data) === false)
                 event.result = false;
 
             // Trigger the native events (except for clicks on links)
-            if (!bubbling && elem[type] && !event.isDefaultPrevented() && !(jQuery.nodeName(elem, 'a') &&
-                    type == "click")) {
+            if (!bubbling && elem[type] && !event.isDefaultPrevented() && !(jQuery.nodeName(elem, 'a')
+                    && type == "click")) {
                 this.triggered = true;
                 try {
                     elem[type]();
@@ -2766,8 +2780,8 @@
                     body = document.body;
                 event.pageX = event.clientX + (doc && doc.scrollLeft || body && body.scrollLeft || 0) - (
                     doc.clientLeft || 0);
-                event.pageY = event.clientY + (doc && doc.scrollTop || body && body.scrollTop || 0) - (doc.clientTop ||
-                    0);
+                event.pageY = event.clientY + (doc && doc.scrollTop || body && body.scrollTop || 0) - (doc.clientTop
+                    || 0);
             }
 
             // Add which for key events
@@ -3131,9 +3145,9 @@
         jQuery.event.add(window, "load", jQuery.ready);
     }
 
-    jQuery.each(("blur,focus,load,resize,scroll,unload,click,dblclick," +
-        "mousedown,mouseup,mousemove,mouseover,mouseout,mouseenter,mouseleave," +
-        "change,select,submit,keydown,keypress,keyup,error").split(","), function(i, name) {
+    jQuery.each(("blur,focus,load,resize,scroll,unload,click,dblclick,"
+        + "mousedown,mouseup,mousemove,mouseover,mouseout,mouseenter,mouseleave,"
+        + "change,select,submit,keydown,keypress,keyup,error").split(","), function(i, name) {
 
         // Handle event binding
         jQuery.fn[name] = function(fn) {
@@ -3306,7 +3320,8 @@
                     // If successful, inject the HTML into all the matched elements
                     if (status == "success" || status == "notmodified")
                         // See if a selector was specified
-                        self.html(selector ?
+                        self.html(selector
+                            ?
                             // Create a dummy div to hold the results
                             jQuery("<div/>")
                             // inject the contents of the document in, removing the scripts
@@ -3315,7 +3330,8 @@
                                 ""))
 
                             // Locate the specified elements
-                            .find(selector) :
+                            .find(selector)
+                            :
 
                             // If not, just inject the full result
                             res.responseText);
@@ -3516,8 +3532,8 @@
 
             // If we're requesting a remote document
             // and trying to load JSON or Script with a GET
-            if (s.dataType == "script" && type == "GET" && parts && (parts[1] && parts[1] != location.protocol ||
-                    parts[2] != location.host)) {
+            if (s.dataType == "script" && type == "GET" && parts && (parts[1] && parts[1] != location.protocol
+                    || parts[2] != location.host)) {
 
                 var head = document.getElementsByTagName("head")[0];
                 var script = document.createElement("script");
@@ -3531,8 +3547,8 @@
 
                     // Attach handlers for all browsers
                     script.onload = script.onreadystatechange = function() {
-                        if (!done && (!this.readyState || this.readyState == "loaded" || this.readyState ==
-                                "complete")) {
+                        if (!done && (!this.readyState || this.readyState == "loaded" || this.readyState
+                                == "complete")) {
                             done = true;
                             success();
                             complete();
@@ -3577,8 +3593,8 @@
                 xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
 
                 // Set the Accepts header for the server, depending on the dataType
-                xhr.setRequestHeader("Accept", s.dataType && s.accepts[s.dataType] ? s.accepts[s.dataType] +
-                    ", */*" : s.accepts._default);
+                xhr.setRequestHeader("Accept", s.dataType && s.accepts[s.dataType] ? s.accepts[s.dataType]
+                    + ", */*" : s.accepts._default);
             } catch (e) {}
 
             // Allow custom headers/mimetypes and early abort
@@ -3616,9 +3632,9 @@
                         ival = null;
                     }
 
-                    status = isTimeout == "timeout" ? "timeout" : !jQuery.httpSuccess(xhr) ?
-                        "error" : s.ifModified && jQuery.httpNotModified(xhr, s.url) ?
-                        "notmodified" : "success";
+                    status = isTimeout == "timeout" ? "timeout" : !jQuery.httpSuccess(xhr)
+                        ? "error" : s.ifModified && jQuery.httpNotModified(xhr, s.url)
+                        ? "notmodified" : "success";
 
                     if (status == "success") {
                         // Watch for, and catch, XML document parse errors
@@ -3727,8 +3743,8 @@
         httpSuccess: function(xhr) {
             try {
                 // IE error sometimes returns 1223 when it should be 204 so treat it as success, see #1450
-                return !xhr.status && location.protocol == "file:" || (xhr.status >= 200 && xhr.status <
-                    300) || xhr.status == 304 || xhr.status == 1223;
+                return !xhr.status && location.protocol == "file:" || (xhr.status >= 200 && xhr.status
+                    < 300) || xhr.status == 304 || xhr.status == 1223;
             } catch (e) {}
             return false;
         },
@@ -3893,8 +3909,8 @@
         toggle: function(fn, fn2) {
             var bool = typeof fn === "boolean";
 
-            return jQuery.isFunction(fn) && jQuery.isFunction(fn2) ? this._toggle.apply(this, arguments) :
-                fn == null || bool ? this.each(function() {
+            return jQuery.isFunction(fn) && jQuery.isFunction(fn2) ? this._toggle.apply(this, arguments)
+                : fn == null || bool ? this.each(function() {
                     var state = bool ? fn : jQuery(this).is(":hidden");
                     jQuery(this)[state ? "show" : "hide"]();
                 }) : this.animate(genFx("toggle", 3), fn, fn2);
@@ -4232,10 +4248,10 @@
                 docElem = doc.documentElement,
                 clientTop = docElem.clientTop || body.clientTop || 0,
                 clientLeft = docElem.clientLeft || body.clientLeft || 0,
-                top = box.top + (self.pageYOffset || jQuery.boxModel && docElem.scrollTop || body.scrollTop) -
-                clientTop,
-                left = box.left + (self.pageXOffset || jQuery.boxModel && docElem.scrollLeft || body.scrollLeft) -
-                clientLeft;
+                top = box.top + (self.pageYOffset || jQuery.boxModel && docElem.scrollTop || body.scrollTop)
+                - clientTop,
+                left = box.left + (self.pageXOffset || jQuery.boxModel && docElem.scrollLeft || body.scrollLeft)
+                - clientLeft;
             return {
                 top: top,
                 left: left
@@ -4266,8 +4282,8 @@
                 top -= elem.scrollTop, left -= elem.scrollLeft;
                 if (elem === offsetParent) {
                     top += elem.offsetTop, left += elem.offsetLeft;
-                    if (jQuery.offset.doesNotAddBorder && !(jQuery.offset.doesAddBorderForTableAndCells &&
-                            /^t(able|d|h)$/i.test(elem.tagName)))
+                    if (jQuery.offset.doesNotAddBorder && !(jQuery.offset.doesAddBorderForTableAndCells
+                            && /^t(able|d|h)$/i.test(elem.tagName)))
                         top += parseInt(computedStyle.borderTopWidth, 10) || 0,
                         left += parseInt(computedStyle.borderLeftWidth, 10) || 0;
                     prevOffsetParent = offsetParent, offsetParent = elem.offsetParent;
@@ -4401,18 +4417,21 @@
         jQuery.fn[method] = function(val) {
             if (!this[0]) return null;
 
-            return val !== undefined ?
+            return val !== undefined
+                ?
 
                 // Set the scroll offset
                 this.each(function() {
                     this == window || this == document ? window.scrollTo(!i ? val : jQuery(window).scrollLeft(),
                         i ? val : jQuery(window).scrollTop()
                     ) : this[method] = val;
-                }) :
+                })
+                :
 
                 // Return the scroll offset
-                this[0] == window || this[0] == document ? self[i ? 'pageYOffset' : 'pageXOffset'] ||
-                jQuery.boxModel && document.documentElement[method] || document.body[method] : this[0][
+                this[0] == window || this[0] == document ? self[i ? 'pageYOffset' : 'pageXOffset']
+                || jQuery.boxModel && document.documentElement[method] || document.body[method] : this[
+                    0][
                     method
                 ];
         };
@@ -4438,24 +4457,30 @@
 
         jQuery.fn[type] = function(size) {
             // Get window width or height
-            return this[0] == window ?
+            return this[0] == window
+                ?
                 // Everyone else use document.documentElement or document.body depending on Quirks vs Standards mode
-                document.compatMode == "CSS1Compat" && document.documentElement["client" + name] ||
-                document.body["client" + name] :
+                document.compatMode == "CSS1Compat" && document.documentElement["client" + name]
+                || document.body["client" + name]
+                :
 
                 // Get document width or height
-                this[0] == document ?
+                this[0] == document
+                ?
                 // Either scroll[Width/Height] or offset[Width/Height], whichever is greater
                 Math.max(
                     document.documentElement["client" + name],
                     document.body["scroll" + name], document.documentElement["scroll" + name],
                     document.body["offset" + name], document.documentElement["offset" + name]
-                ) :
+                )
+                :
 
                 // Get or set width or height on the element
-                size === undefined ?
+                size === undefined
+                ?
                 // Get width or height on the element
-                (this.length ? jQuery.css(this[0], type) : null) :
+                (this.length ? jQuery.css(this[0], type) : null)
+                :
 
                 // Set the width or height on the element (default to pixels if value is unitless)
                 this.css(type, typeof size === "string" ? size : size + "px");
